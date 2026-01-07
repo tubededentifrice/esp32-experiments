@@ -16,7 +16,7 @@ import time
 led = NeoPixel(Pin(15), 4)
 
 # BRIGHTNESS: Change this number! (1 = dim, 255 = super bright)
-BRIGHTNESS = 30
+BRIGHTNESS = 1
 
 # This function sets ALL 4 LEDs to the same color
 # Each color goes from 0 (off) to 255 (brightest)

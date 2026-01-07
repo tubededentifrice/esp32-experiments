@@ -1,5 +1,6 @@
 # ESP32 / MicroPython specific
 .esp32-port
+.last-flash
 firmware/*.bin
 
 # Byte-compiled / optimized / DLL files
