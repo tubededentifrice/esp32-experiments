@@ -1,26 +1,33 @@
-# Experiment 01: RGB LED
+# Experiment 01: RGB LED (WS2812 / NeoPixel)
 
-An RGB LED has 3 tiny LEDs inside (Red, Green, Blue). By mixing them, you can make ANY color!
+This is a "smart" RGB LED - it has a tiny chip inside that controls the colors. You only need ONE data wire!
 
 ## Wiring
 
-| RGB Module | ESP32 Pin |
-|------------|-----------|
-| R (Red)    | GPIO 0    |
-| G (Green)  | GPIO 2    |
-| B (Blue)   | GPIO 15   |
-| GND (-)    | GND       |
+| LED Pin | ESP32 Pin |
+|---------|-----------|
+| S (Signal) | GPIO 15 |
+| V (Voltage) | 3.3V |
+| G (Ground) | GND |
 
 ## What the Code Does
 
-- Uses PWM (Pulse Width Modulation) to control brightness
-- Each color can be 0 (off) to 1023 (full brightness)
-- Mixing colors: RED + GREEN = YELLOW, RED + BLUE = PURPLE, etc.
+- Uses the `neopixel` library (built into MicroPython)
+- Colors are 0-255 for Red, Green, Blue
+- `led.write()` sends the color to the LED
+
+## Cool Thing About WS2812
+
+You can chain many of these LEDs together! They each get their own color. Just change the `1` to however many LEDs you have:
+```python
+led = NeoPixel(Pin(15), 5)  # 5 LEDs!
+led[0] = (255, 0, 0)  # First LED = red
+led[1] = (0, 255, 0)  # Second LED = green
+led.write()
+```
 
 ## Try This!
 
-Change the numbers in `set_color(r, g, b)` to make your own colors!
-
-- `set_color(500, 0, 0)` = dim red
-- `set_color(1023, 500, 0)` = orange
-- `set_color(0, 500, 500)` = teal
+- Make it dimmer: use smaller numbers like `set_color(50, 0, 0)`
+- Make orange: `set_color(255, 100, 0)`
+- Make pink: `set_color(255, 50, 50)`
