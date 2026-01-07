@@ -1,6 +1,6 @@
 # Experiment 01: RGB LED (WS2812 / NeoPixel)
 
-This is a "smart" RGB LED - it has a tiny chip inside that controls the colors. You only need ONE data wire!
+This module has **4 smart RGB LEDs** in a row! Each LED has a tiny chip inside that controls its color. You only need ONE data wire for all of them!
 
 ## Wiring
 

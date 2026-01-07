@@ -15,9 +15,16 @@ import time
 # We have 4 LEDs!
 led = NeoPixel(Pin(15), 4)
 
+# BRIGHTNESS: Change this number! (1 = dim, 255 = super bright)
+BRIGHTNESS = 30
+
 # This function sets ALL 4 LEDs to the same color
 # Each color goes from 0 (off) to 255 (brightest)
 def set_color(r, g, b):
+    # Make the color dimmer based on BRIGHTNESS
+    r = r * BRIGHTNESS // 255
+    g = g * BRIGHTNESS // 255
+    b = b * BRIGHTNESS // 255
     for i in range(4):       # Loop through all 4 LEDs
         led[i] = (r, g, b)   # Set each one
     led.write()              # Send it to the LEDs!
