@@ -11,15 +11,16 @@ from machine import Pin
 from neopixel import NeoPixel
 import time
 
-# Set up the LED on GPIO 15
-# The "1" means we have 1 LED (you can chain more!)
-led = NeoPixel(Pin(15), 1)
+# Set up the LEDs on GPIO 15
+# We have 4 LEDs!
+led = NeoPixel(Pin(15), 4)
 
-# This function sets the color
+# This function sets ALL 4 LEDs to the same color
 # Each color goes from 0 (off) to 255 (brightest)
 def set_color(r, g, b):
-    led[0] = (r, g, b)  # Set the color
-    led.write()          # Send it to the LED!
+    for i in range(4):       # Loop through all 4 LEDs
+        led[i] = (r, g, b)   # Set each one
+    led.write()              # Send it to the LEDs!
 
 # Turn off the LED
 def off():
