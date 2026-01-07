@@ -2,10 +2,10 @@
 #
 # This is a "smart" LED - it only needs 1 wire for data!
 #
-# Wiring:
-#   S (Signal) -> GPIO 15
-#   V (Voltage) -> 3.3V
-#   G (Ground)  -> GND
+# Wiring (keep wires close together!):
+#   S (Signal) -> IO15
+#   V (Voltage) -> 3.3V (next to IO15)
+#   G (Ground)  -> GND (next to IO15)
 
 from machine import Pin
 from neopixel import NeoPixel

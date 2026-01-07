@@ -4,11 +4,11 @@ This is a "smart" RGB LED - it has a tiny chip inside that controls the colors. 
 
 ## Wiring
 
-| LED Pin | ESP32 Pin |
-|---------|-----------|
-| S (Signal) | GPIO 15 |
-| V (Voltage) | 3.3V |
-| G (Ground) | GND |
+| LED Pin | Expansion Board |
+|---------|-----------------|
+| S (Signal) | IO15 |
+| V (Voltage) | 3.3V (next to IO15) |
+| G (Ground) | GND (next to IO15) |
 
 ## What the Code Does
 

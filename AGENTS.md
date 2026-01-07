@@ -72,16 +72,20 @@ If you see these signs, run `./scripts/flash-firmware.sh`:
 - ESP32 doesn't respond at all
 - Kid says "it was working before"
 
-## Important ESP32 Pins
+## Expansion Board Pin Layout
+
+**Pin labels**: Pins are labeled **IO##** (not GPIO). Example: IO15 = GPIO 15
+
+**Wiring tip**: Each IO pin has **3.3V and GND right next to it**. When wiring a module, pick an IO pin so all 3 wires (S, V, G) stay close together - less messy!
 
 ```
-Analog Input (sensors): GPIO 34, 35, 36, 39
-Digital I/O: GPIO 2, 4, 5, 12-19, 21-23, 25-27, 32-33
-Built-in LED: GPIO 2
-I2C: GPIO 21 (SDA), GPIO 22 (SCL)
+Analog Input (sensors): IO34, IO35, IO36, IO39
+Digital I/O: IO2, IO4, IO5, IO12-IO19, IO21-IO23, IO25-IO27, IO32-IO33
+Built-in LED: IO2
+I2C: IO21 (SDA), IO22 (SCL)
 ```
 
-**Warning**: GPIO 6-11 are used for flash memory - DON'T USE THEM!
+**Warning**: IO6-IO11 are used for flash memory - DON'T USE THEM!
 
 ## Basic Code Pattern for Sensors
 
