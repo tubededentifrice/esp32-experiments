@@ -14,18 +14,39 @@ fi
 
 echo "✓ Python3 found!"
 
-# Install required Python packages
-echo ""
-echo "📦 Installing esptool (for flashing firmware)..."
-pip3 install --user esptool
+# On Mac with Homebrew, use pipx for CLI tools
+if [[ "$OSTYPE" == "darwin"* ]] && command -v brew &> /dev/null; then
+    echo ""
+    echo "🍎 Mac with Homebrew detected - using pipx for tools"
 
-echo ""
-echo "📦 Installing mpremote (for uploading code)..."
-pip3 install --user mpremote
+    # Make sure pipx is installed
+    if ! command -v pipx &> /dev/null; then
+        echo "📦 Installing pipx..."
+        brew install pipx
+        pipx ensurepath
+    fi
 
-echo ""
-echo "📦 Installing pyserial (for connecting to ESP32)..."
-pip3 install --user pyserial
+    echo ""
+    echo "📦 Installing esptool (for flashing firmware)..."
+    pipx install esptool 2>/dev/null || pipx upgrade esptool
+
+    echo ""
+    echo "📦 Installing mpremote (for uploading code)..."
+    pipx install mpremote 2>/dev/null || pipx upgrade mpremote
+else
+    # On other systems, use pip with --user
+    echo ""
+    echo "📦 Installing esptool (for flashing firmware)..."
+    pip3 install --user esptool
+
+    echo ""
+    echo "📦 Installing mpremote (for uploading code)..."
+    pip3 install --user mpremote
+
+    echo ""
+    echo "📦 Installing pyserial (for connecting to ESP32)..."
+    pip3 install --user pyserial
+fi
 
 echo ""
 echo "✅ All done! Your computer is ready to work with ESP32!"
